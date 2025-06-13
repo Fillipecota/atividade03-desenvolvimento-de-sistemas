@@ -39,8 +39,13 @@ class DeselvolvidorService {
         }));
      }
 
-    public async getById() { 
-        // const desenvolvidorId = await prisma.desenvolvidor.findUnique({ where: { id } });
+    public async getById(id: string) { 
+        const desenvolvidorId = await prisma.desenvolvidor.findUnique({ where: { id } });
+         if (!desenvolvidorId){
+            throw new Error("desevolvidor não encontrada");
+         }
+         
+
 
         
         
